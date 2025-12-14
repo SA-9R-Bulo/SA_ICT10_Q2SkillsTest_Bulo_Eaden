@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>School Club Information</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        color: #006064;
+        transition: background 0.5s;
+    }
+    h1 {
+        color: #004d40;
+        text-align: center;
+        border-bottom: 2px solid #004d40;
+        padding-bottom: 10px;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: 700;
+        display: block;
+        margin-top: 20px;
+    }
+    select, button {
+        padding: 12px;
+        margin: 10px 0;
+        width: 100%;
+        border: 1px solid #004d40;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: all 0.3s;
+    }
+    select:focus, button:hover {
+        outline: none;
+        box-shadow: 0 0 8px rgba(0, 77, 64, 0.3);
+    }
+    button {
+        padding: 12px;
+        margin: 10px 0;
+        width: 100%;
+        border: 1px solid #29a28c;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    button:hover {
+        transform: scale(1.1); 
+        box-shadow: 0 4px 15px rgba(0, 77, 64, 0.3); 
+    }
+    #club-info {
+        background-color: #b2ebf2;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border-left: 6px solid #004d40;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+    }
+    #club-info h2 {
+        margin-top: 0;
+        color: #006064;
+    }
+
+#club-image {
+    margin: auto;
+    display: none;
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    border: 2px solid #004d40; /* existing border */
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+
+
+#club-image:hover {
+     transform: scale(1.1); 
+    border-color: #29a28c; 
+    box-shadow: 0 4px 15px rgba(0, 77, 64, 0.3); 
+}
+</style>
+</head>
+<body>
+    <h1 class="club">OBSA School Club Information</h1>
+    
+    <label for="club-select">Select a club:</label>
+    <select id="club-select">
+        <option value="">-- Select a club --</option>
+        <option value="chess">Chess Club</option>
+        <option value="basketball">Basketball Club</option>
+        <option value="robotics">Robotics Club</option>
+        <option value="volleyball">Volleyball Club</option>
+        <option value="art">Art Club</option>
+        <option value="math">O.M.G Club</option>
+    </select>
+    
+    <button id="show-info" py-click="show_club_info">Show Club Information</button>
+    
+    <pre id="club-info"></pre>
+    
+    
+    <img id="club-image" src="" alt="Club Image" />
+
+    <script type="py" src="main.py"></script>
+
+    
+    <script>
+        document.getElementById('show-info').addEventListener('click', () => {
+            const select = document.getElementById('club-select');
+            const club = select.value;
+            const image = document.getElementById('club-image');
+
+            
+            const images = {
+                'chess': 'https://images.chesscomfiles.com/uploads/v1/article/17623.87bb05cd.668x375o.47d81802f1eb@2x.jpeg', // Example image
+                'basketball': 'https://legacymedia.sportsplatform.io/image/upload/x_19,y_32,w_2948,h_1961,c_crop/v1637080168/ukf6gnhncdcsf1ssct74.jpg',
+                'robotics': 'https://boomset.com/wp-content/uploads/2025/09/The-Role-of-Robotics-in-Everyday-Life-1024x576.png',
+                'volleyball': 'https://i.pinimg.com/736x/4d/07/29/4d0729115664cad50b42d745986e960e.jpg',
+                'art': 'https://aaft.com/blog/wp-content/uploads/2025/03/3901.jpg',
+                'math': 'https://editor.analyticsvidhya.com/uploads/58787cal.jpeg'
+            };
+
+            if (club && images[club]) {
+                image.src = images[club];
+                image.style.display = 'block';
+            } else {
+                image.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
