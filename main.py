@@ -34,7 +34,7 @@ club_info = {
                 "name": "Volleyball Club",
                 "description": "Those who want to join Volleyball club to fly high!",
                 "meeting_time": "Every Wednesday 3:00-5:00 PM",
-                "location": "Room 507",
+                "location": "Quadrangle",
                 "advisor": "Mr. Mariano",
                 "members": 12,
                 "category": "Sports"
@@ -85,4 +85,5 @@ def show_club_info(e):
             Number of Members: {info['members']}
             Category: {info['category']}
             """
+
     display(output, target="club-info")
