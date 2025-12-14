@@ -48,7 +48,7 @@ club_info = {
                 "members": 20,
                 "category": "Arts"
             },
-             "Math": {
+             "math": {
                 "name": "O.M.G Club",
                 "description": "Indulge in an experience of formulas and numbers.",
                 "meeting_time": "Every Friday 2:30-4:30 PM",
@@ -87,3 +87,4 @@ def show_club_info(e):
             """
 
     display(output, target="club-info")
+
